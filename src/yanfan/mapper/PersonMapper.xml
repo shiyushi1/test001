@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="yanfan.mapper.PersonMapper">
+	<!--查询-->
+    <select id="selectAll" resultType="yanfan.pojo.Person">
+        select 	id,
+	name,
+	sex,
+	age,
+	rank,
+	department
+
+	from
+	persondb.person
+    </select>
+	<!--添加-->
+	<insert id="add">
+		insert into persondb.person
+	(
+	name,
+	sex,
+	age,
+	rank,
+	department
+	)
+	values
+	(
+	#{name},
+	#{sex},
+	#{age},
+	#{rank},
+	#{department}
+	);
+	</insert>
+	<update id="update">
+		update persondb.person
+	set
+	name = #{name} ,
+	sex = #{sex} ,
+	age = #{age} ,
+	rank = #{rank} ,
+	department = #{department}
+
+	where
+	id =#{id} ;
+	</update>
+	<delete id="delete">
+		delete from persondb.person
+	where
+	id =#{id} ;
+	</delete>
+
+</mapper>
